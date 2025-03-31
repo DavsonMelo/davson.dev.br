@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.css'; // Estilos específicos do header
+import { FaHome, FaInfoCircle, FaEnvelope } from "react-icons/fa"; 
 
 function Header() {
   const [menuAberto, setMenuAberto] = useState(false);
-  let timer = null; // Variável para armazenar o timer
 
   // Função para abrir/fechar o menu
   const toggleMenu = () => {
@@ -13,6 +13,7 @@ function Header() {
 
   // Fecha o menu automaticamente após 5 segundos
   useEffect(() => {
+    let timer;
     if (menuAberto) {
       timer = setTimeout(() => {
         setMenuAberto(false);
@@ -35,9 +36,9 @@ function Header() {
       </div>
         {/* Menu responsivo */}
       <ul className={`${styles.menu} ${menuAberto ? styles.active : ""}`}>
-        <li><Link to="/" onClick={toggleMenu}>Home</Link></li>
-        <li><Link to="/sobre" onClick={toggleMenu}>Sobre</Link></li>
-        <li><Link to="/contato" onClick={toggleMenu}>Contato</Link></li>
+        <li><Link to="/" onClick={toggleMenu}><FaHome /> Home</Link></li>
+        <li><Link to="/sobre" onClick={toggleMenu}><FaInfoCircle /> Sobre</Link></li>
+        <li><Link to="/contato" onClick={toggleMenu}><FaEnvelope /> Contato</Link></li>
       </ul>
       </header>
     );

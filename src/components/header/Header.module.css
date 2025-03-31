@@ -21,6 +21,7 @@
   /* Sombra sutil para destacar */
   z-index: 1000;
   /* Garante que fique acima de outros elementos */
+  overflow: visible;
 }
 
 .menu {
@@ -136,6 +137,7 @@
     background: linear-gradient(to right, #00aeff, #0077b6, #00d9ff);
     padding: 10px;
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+    border-bottom-left-radius: 15px;
   }
 
   .menu.active {
@@ -144,8 +146,20 @@
   }
 
   .menu a {
+    display: flex;
+    /* Coloca o ícone e o texto lado a lado */
+    align-items: center;
+    /* Alinha os itens verticalmente */
+    gap: 20px;
+    /* Define o espaço entre o ícone e o texto */
     font-size: 16px;
-    padding: 10px;
-    text-align: center;
+    text-align: left;
+  }
+
+  .menu li {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 10px 0;
   }
 }
