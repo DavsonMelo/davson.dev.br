@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%; /* Garante que o corpo ocupe a altura total da tela */
+  overflow: hidden; /* Desativa a rolagem global da página */
+}
+
+.home {
+  background-color: var(--body-bg);
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.main {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  padding-top: 65px;
+  padding-bottom: 65px;
+  color: var(--body-text);
+  flex-grow: 1; /* Faz o main crescer e ocupar a altura disponível */
+  overflow: hidden;
+}
+/* Ocultar a barra de rolagem no Chrome, Edge e Safari */
+.main::-webkit-scrollbar {
+  width: 3px;
+}
+
+.main::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+}
+
+.main::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Para Firefox */
+.main {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+/* Distribuição das Seções */
+.section1 {
+  flex: 3;  /* 3 partes */
+  background-color: var(--section1-bg) !important; /* Cor de fundo personalizada */
+  align-items: center; /* Centraliza o conteúdo verticalmente */
+  overflow-y: auto; /* Permite rolagem vertical apenas na Section2 */
+  max-height: 90vh; /* Garante que a Section2 não ultrapasse a altura da tela */
+  padding: 20px; /* Adiciona um padding para o conteúdo */
+  box-sizing: border-box; /* Garante que o padding não aumente o tamanho da seção */
+}
+.section1 h2 {
+  position: sticky;
+  top: 0;
+  background: var(--section1-bg);
+  z-index: 10; /* Mantém acima dos ícones */
+  padding: 1px 0;
+}
+
+.section2 {
+  flex: 5;
+  background-color: var(--section2-bg, #e0e0e0);
+  align-items: center; /* Centraliza o conteúdo verticalmente */
+  overflow-y: auto; /* Permite rolagem vertical apenas na Section2 */
+  max-height: 100vh; /* Garante que a Section2 não ultrapasse a altura da tela */
+  padding: 20px; /* Adiciona um padding para o conteúdo */
+  box-sizing: border-box; /* Garante que o padding não aumente o tamanho da seção */
+}
+
+.section3 {
+  flex: 2;  /* 2 partes */
+  background-color: var(--section3-bg, #d0d0d0); /* Cor de fundo personalizada */
+  align-items: center; /* Centraliza o conteúdo verticalmente */
+  overflow-y: auto; /* Permite rolagem vertical apenas na Section2 */
+  max-height: 100vh; /* Garante que a Section2 não ultrapasse a altura da tela */
+  padding: 20px; /* Adiciona um padding para o conteúdo */
+  box-sizing: border-box; /* Garante que o padding não aumente o tamanho da seção */
+}
+
+.techContainer {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 20px;
+  overflow: hidden; /* Impede que a rolagem apareça */
+}
+
+/* 📱 RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column; /* Empilha as sections na vertical */
+  }
+
+  /* Se você precisar ajustar as cores para responsividade */
+  .section1, .section2, .section3 {
+    background-color: var(--body-bg); /* Mantém a cor de fundo consistente */
+  }
+}

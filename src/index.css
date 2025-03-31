@@ -1,0 +1,43 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: 'Fira Code', monospace;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+   /* Header Gradient */
+   --header-gradient-start: #00aeff;
+   --header-gradient-middle: #0077b6;
+   --header-gradient-end: #00d9ff;
+ 
+   /* Footer - Tom mais escuro para contraste */
+   --footer-bg: #005080;
+   --footer-text: #ffffff;
+ 
+   /* Body Background - Um tom suave inspirado no gradiente */
+   --body-bg: #e6f7ff;
+   --body-text: #00334d;
+   --section1-bg: rgb(230, 217, 217);
+ 
+   /* Botões e Links */
+   --primary-btn-bg: #0077b6;
+   --primary-btn-text: #ffffff;
+   --primary-btn-hover: #005f8a;
+   --secondary-btn-bg: #00aeff;
+   --secondary-btn-text: #ffffff;
+   --secondary-btn-hover: #008bcc;
+ 
+   /* Borda e Detalhes */
+   --border-color: #0091cc;
+   --highlight-color: #00d9ff;
+}
+
+html {
+  overflow-y: overlay; /* Permite que o scrollbar fique sobre o conteúdo sem alterar a largura */
+}

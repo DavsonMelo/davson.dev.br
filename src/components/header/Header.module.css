@@ -1,0 +1,151 @@
+.header {
+  width: 100%;
+  /* Faz o header ocupar toda a largura */
+  position: fixed;
+  /* Fixa o header no topo da tela */
+  top: 0;
+  /* Gruda no topo */
+  left: 0;
+  /* Garante que começa do lado esquerdo */
+  background: linear-gradient(to right, #00aeff, #0077b6, #00d9ff);
+  /* Cor de fundo */
+  display: flex;
+  /* Alinha os itens em linha */
+  justify-content: space-around;
+  /* Espaço entre o título e o menu */
+  gap: 50%;
+  /* Espaço entre os itens */
+  align-items: center;
+  /* Centraliza verticalmente */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+  /* Sombra sutil para destacar */
+  z-index: 1000;
+  /* Garante que fique acima de outros elementos */
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin-right: 30px;
+  margin: 0;
+  /* Remove margens padrão */
+  padding: 0;
+  /* Remove qualquer padding interno */
+}
+
+.header a {
+  text-decoration: none;
+  color: white;
+  font-weight: semi-bold;
+  font-size: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+
+}
+
+.header a:hover {
+  text-decoration: underline;
+}
+
+.logoHeader {
+  width: 70px;
+  height: 70px;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* Espaço entre a logo e o título */
+}
+
+.logoTitulo {
+  font-size: 24px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Para tablets (largura entre 768px e 1024px) */
+@media (max-width: 1024px) {
+  .header {
+    justify-content: space-between;
+    /* Melhor distribuição do espaço */
+    gap: 20px;
+    padding: 10px 20px;
+    /* Adiciona respiro lateral */
+  }
+
+  .menu {
+    gap: 10px;
+    /* Diminui o espaço entre itens do menu */
+  }
+
+  .logoHeader {
+    width: 60px;
+    /* Reduz ligeiramente a logo */
+    height: 60px;
+  }
+
+  .logoTitulo {
+    font-size: 20px;
+    /* Diminui o tamanho do texto */
+  }
+
+  .header a {
+    font-size: 18px;
+    /* Ajusta o tamanho dos links */
+  }
+}
+
+.menuToggle {
+  display: none;
+  /* Esconde no desktop */
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  padding: 5px 10px;
+  /* Espaçamento ao redor do ícone */
+  background: rgba(0, 0, 0, 0.2);
+  /* Fundo semi-transparente */
+  border-radius: 5px;
+  /* Borda arredondada */
+}
+
+/* Para celulares (largura até 767px) */
+@media (max-width: 767px) {
+  .menuToggle {
+    display: block;
+    /* Mostra o ícone ☰ */
+    position: absolute;
+    /* Posiciona de forma absoluta */
+    right: 15px;
+    /* Encosta no canto direito */
+    top: 15px;
+    /* Posiciona no topo */
+  }
+
+  .menu {
+    display: none;
+    /* Esconde o menu padrão */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 30%;
+    background: linear-gradient(to right, #00aeff, #0077b6, #00d9ff);
+    padding: 10px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .menu.active {
+    display: flex;
+    /* Mostra o menu quando ativado */
+  }
+
+  .menu a {
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+  }
+}

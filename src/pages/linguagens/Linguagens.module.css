@@ -1,0 +1,67 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Faz a página ocupar toda a tela */
+    overflow: hidden;
+  }
+  
+  .codeImage {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
+  .linguagem {
+    flex: 1; /* Ocupa o espaço restante da tela */
+    overflow-y: auto; /* Ativa a rolagem apenas no conteúdo */
+    padding: 20px;
+    padding-top: 70px; /* Para compensar o menu fixo */
+  }
+  
+  /* Ocultar a barra de rolagem no Chrome, Edge e Safari */
+  .linguagem::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .linguagem::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+  }
+  
+  .linguagem::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  /* Para Firefox */
+  .linguagem {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+  }
+
+  .linguagem h1, .linguagem h2 {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .linguagem p {
+    text-align: justify;
+    padding: 20px;
+  }
+
+  .linguagem ul {
+    padding: 20px;
+  }
+
+  .linha-continua {
+    border: 0;
+    border-top: 2px solid #3498db;
+    margin: 20px 0;
+  }
+  
