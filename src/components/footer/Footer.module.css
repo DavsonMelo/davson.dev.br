@@ -1,0 +1,80 @@
+/* Footer escondido no desktop */
+.footer {
+    display: none;
+  }
+  
+ /* 📱 RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .main {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto; /* Permite rolar horizontalmente */
+    scroll-snap-type: x mandatory; /* Para um efeito de "snap" entre as sections */
+    width: 100vw;
+    height: 100vh;
+    scroll-behavior: smooth;
+  }
+
+  .main::-webkit-scrollbar {
+    display: none; /* Esconde a barra de rolagem no mobile */
+  }
+
+  .main > section {
+    flex: 0 0 100vw;
+    scroll-snap-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .footer {
+    position: fixed; /* Fixa no rodapé */
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.7); /* Fundo escuro semi-transparente */
+    padding: 8px 15px;
+    border-radius: 20px;
+    z-index: 999;
+  }
+
+  /* Trocar a ordem das sections no mobile */
+  .section1 {
+    order: 2; /* Coloca a Section1 depois da Section2 */
+    margin-top: 93px; /* Adiciona um espaço superior para o título */
+    text-align: center; /* Centraliza o texto */
+    padding: 0 20px; /* Adiciona um padding para o conteúdo */
+  }
+
+  .section1 h2 {
+    background: var(--section1-bg);
+    z-index: 10; /* Mantém acima dos ícones */
+    padding: 10px 0;
+  }
+
+  .section2 {
+    order: 1; /* Coloca a Section2 como a primeira */
+    margin-top: 160px; /* Adiciona um espaço superior para o título */
+  }
+
+  .section3 {
+    order: 3; /* Coloca a Section3 como a última */
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .dot.active {
+    background: #0077b6;
+    opacity: 1;
+  }
+
+}

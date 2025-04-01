@@ -94,21 +94,40 @@ html, body {
 /* 📱 RESPONSIVIDADE */
 @media (max-width: 768px) {
   .main {
+    display: flex;
     flex-direction: row;
     overflow-x: auto; /* Permite rolar horizontalmente */
     scroll-snap-type: x mandatory; /* Para um efeito de "snap" entre as sections */
+    width: 100vw;
+    height: 100%;
+    margin-top: 20px; /* Adiciona um espaço superior para o título */
+    scroll-behavior: smooth;
+  }
+
+  .main::-webkit-scrollbar {
+    display: none; /* Esconde a barra de rolagem no mobile */
   }
 
   .main > section {
-    flex-shrink: 0; /* Evita que as sections encolham */
-    min-width: 100vw; /* Cada section ocupa 100% da largura da tela */
-    scroll-snap-align: center; /* Alinha cada section no centro */
-    height: 100vh; /* Faz as sections ocuparem a altura total da tela */
+    flex: 0 0 100vw;
+    scroll-snap-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
   }
 
   /* Trocar a ordem das sections no mobile */
   .section1 {
     order: 2; /* Coloca a Section1 depois da Section2 */
+    text-align: center; /* Centraliza o texto */
+    padding: 0 20px; /* Adiciona um padding para o conteúdo */
+  }
+
+  .section1 h2 {
+    background: var(--section1-bg);
+    z-index: 10; /* Mantém acima dos ícones */
+    padding: 10px 0;
   }
 
   .section2 {
