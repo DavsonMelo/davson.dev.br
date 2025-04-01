@@ -28,6 +28,8 @@ html, body {
   color: var(--body-text);
   flex-grow: 1; /* Faz o main crescer e ocupar a altura disponível */
   overflow: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
 }
 /* Ocultar a barra de rolagem no Chrome, Edge e Safari */
 .main::-webkit-scrollbar {
@@ -41,12 +43,6 @@ html, body {
 
 .main::-webkit-scrollbar-track {
   background: transparent;
-}
-
-/* Para Firefox */
-.main {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
 }
 
 /* Distribuição das Seções */
@@ -98,11 +94,29 @@ html, body {
 /* 📱 RESPONSIVIDADE */
 @media (max-width: 768px) {
   .main {
-    flex-direction: column; /* Empilha as sections na vertical */
+    flex-direction: row;
+    overflow-x: auto; /* Permite rolar horizontalmente */
+    scroll-snap-type: x mandatory; /* Para um efeito de "snap" entre as sections */
   }
 
-  /* Se você precisar ajustar as cores para responsividade */
-  .section1, .section2, .section3 {
-    background-color: var(--body-bg); /* Mantém a cor de fundo consistente */
+  .main > section {
+    flex-shrink: 0; /* Evita que as sections encolham */
+    min-width: 100vw; /* Cada section ocupa 100% da largura da tela */
+    scroll-snap-align: center; /* Alinha cada section no centro */
+    height: 100vh; /* Faz as sections ocuparem a altura total da tela */
   }
+
+  /* Trocar a ordem das sections no mobile */
+  .section1 {
+    order: 2; /* Coloca a Section1 depois da Section2 */
+  }
+
+  .section2 {
+    order: 1; /* Coloca a Section2 como a primeira */
+  }
+
+  .section3 {
+    order: 3; /* Coloca a Section3 como a última */
+  }
+
 }

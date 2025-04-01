@@ -163,3 +163,17 @@
     padding: 10px 0;
   }
 }
+
+/* Esconder os ícones no desktop (telas grandes) */
+@media (min-width: 768px) {
+  .header a svg {
+    display: none; /* Esconde os ícones no desktop */
+  }
+}
+
+/* Mostrar os ícones no mobile */
+@media (max-width: 767px) {
+  .header a svg {
+    display: inline-block; /* Mostra os ícones no mobile */
+  }
+}
