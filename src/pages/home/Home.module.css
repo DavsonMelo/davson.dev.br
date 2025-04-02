@@ -66,11 +66,60 @@ html, body {
 .section2 {
   flex: 5;
   background-color: var(--section2-bg, #e0e0e0);
-  align-items: center; /* Centraliza o conteúdo verticalmente */
-  overflow-y: auto; /* Permite rolagem vertical apenas na Section2 */
   max-height: 100vh; /* Garante que a Section2 não ultrapasse a altura da tela */
-  padding: 20px; /* Adiciona um padding para o conteúdo */
-  box-sizing: border-box; /* Garante que o padding não aumente o tamanho da seção */
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha */
+  gap: 20px; /* Espaçamento entre os cards */
+  align-content: flex-start; /* Mantém os cards alinhados no topo */
+  overflow-y: auto; /* Permite rolagem vertical */
+  padding-bottom: 90px; /* Adiciona um espaço extra na parte inferior */
+}
+
+.section2 h1 {
+  font-size: 2rem;
+  margin-top: 20px; /* Adiciona um espaço superior para o título */
+  margin-bottom: 20px; /* Adiciona espaço abaixo do título */
+  text-align: center;
+  color: var(--section2-text, #333);
+  width: 100%; /* Garante que o título ocupe toda a largura */
+}
+
+.noticiasContainer {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os cards quebrem para uma nova linha */
+  justify-content: center; /* Centraliza os cards */
+  gap: 20px; /* Espaçamento entre os cards */
+}
+
+
+.cardNoticia {
+  flex: 1 1 calc(50% - 20px); /* Ocupa 50% da largura da linha */
+  max-width: 300px; /* Limita a largura máxima */
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--card-bg, #fff);
+  border-radius: 10px;
+  padding: 10px;
+  overflow: auto;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cardNoticia img {
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.cardNoticia h3 {
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+  color: var(--section2-text, #333); /* Cor do texto personalizada */
 }
 
 .section3 {
@@ -132,10 +181,18 @@ html, body {
 
   .section2 {
     order: 1; /* Coloca a Section2 como a primeira */
+    padding-bottom: 110px; /* Adiciona um espaço extra na parte inferior */
   }
 
   .section3 {
     order: 3; /* Coloca a Section3 como a última */
+  }
+
+  .cardNoticia img {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
   }
 
 }

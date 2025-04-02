@@ -1,29 +1,44 @@
 import React, { useState, useRef, useEffect } from 'react';
-import Header from '../../components/header/Header'; // Importando o header
+import Header from '../../components/header/Header'; 
 import Footer from "../../components/footer/Footer";
 import styles from './Home.module.css';
 
-import Section1 from '../../components/body/sections/Section1'; // Importando a seção 1
-import Section2 from '../../components/body/sections/Section2'; // Importando a seção 2
-import Section3 from '../../components/body/sections/Section3'; // Importando a seção 3
+import Section1 from '../../components/body/sections/Section1'; 
+import Section2 from '../../components/body/sections/Section2'; 
+import Section3 from '../../components/body/sections/Section3'; 
 
 function Home() {
   const mainRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const isMobile = window.innerWidth <= 767;
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 767);
 
   useEffect(() => {
-    if (!isMobile || !mainRef.current) return;
+    const updateIsMobile = () => setIsMobile(window.innerWidth <= 767);
+    window.addEventListener("resize", updateIsMobile);
+    return () => window.removeEventListener("resize", updateIsMobile);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile) return;
 
     const handleScroll = () => {
+      if (!mainRef.current) return;
       const scrollLeft = mainRef.current.scrollLeft;
       const sectionWidth = mainRef.current.clientWidth;
       const index = Math.round(scrollLeft / sectionWidth);
       setActiveIndex(index);
     };
 
-    mainRef.current.addEventListener("scroll", handleScroll);
-    return () => mainRef.current.removeEventListener("scroll", handleScroll);
+    const mainElement = mainRef.current;
+    if (mainElement) {
+      mainElement.addEventListener("scroll", handleScroll);
+    }
+
+    return () => {
+      if (mainElement) {
+        mainElement.removeEventListener("scroll", handleScroll);
+      }
+    };
   }, [isMobile]);
 
   return (
